@@ -1,0 +1,61 @@
+Evolution of Virtual Environments in Python
+1️⃣ virtualenv (Initial Solution — external package)
+⚙ Before Python 3.3
+
+Python originally did not include any virtual environment tool.
+So developers used:
+
+pip install virtualenv
+virtualenv myenv
+
+🔹 Why it was needed
+
+To isolate dependencies per project
+Avoid conflicts in global site-packages
+
+🔹 Key point: virtualenv was not built into Python, so it required installation.
+
+
+2️⃣ venv (Built-in virtual environment module)
+🐍 Introduced in Python 3.3
+
+Python added venv inside the standard library to replace the external virtualenv.
+
+Create environment:
+
+python3 -m venv myenv
+
+Activate:
+
+source myenv/bin/activate   # Linux/Mac
+myenv\Scripts\activate      # Windows
+
+🔹 Why it replaced virtualenv
+
+No installation needed, built-in
+Simpler, cleaner
+Recommended by Python core team
+
+🔸 Limitation:
+
+Basic functionality only
+Slow package installs
+No dependency resolution or lock files
+
+
+3️⃣ uv (Modern ultra-fast environment & package manager)
+⚡ 2024-2025 (Rust-based, very fast)
+
+A new tool by Astral-Sh:
+
+replaces pip, venv, pipx, pip-tools
+installs and resolves packages extremely fast
+
+Create environment:
+uv venv
+
+Install packages:
+uv add requests
+
+Run inside:
+uv run main.py

@@ -1,0 +1,31 @@
+Install : 
+    wget -qO- https://astral.sh/uv/install.sh | sh
+    
+    OR
+    
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+
+Check Version :
+    uv --version
+
+To initialize project : 
+    uv init proj_Name
+
+    To create virtual environment in it : 
+        cd proj_Name
+        uv venv
+
+    To activate env : 
+        source .venv/bin/activate
+
+        To add packages :
+            uv add numpy
+
+To check all the installed packages : 
+    uv pip list
+
+To install all the packages from requirements.txt :
+    uv pip install -r requirements.txt //it woth update pyproject.toml and lock file
+
+To Deactivate :
+    deactivate
