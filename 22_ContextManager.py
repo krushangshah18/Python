@@ -3,7 +3,7 @@
 with open("sample.txt", "w") as file:
     file.write("Hiii")
 
-#######Creating our ouw with
+#######Creating our own with
 
 class File:
 
