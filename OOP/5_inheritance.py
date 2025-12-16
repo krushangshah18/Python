@@ -43,7 +43,7 @@ class SmartPhone(Phone):
 
 s=SmartPhone (20000, "Apple", 13)
 
-# print(s.__brand) #CAMMOT ACCESS ERROR
+# print(s.__brand) #CANNOT ACCESS ERROR
 
 
 ############################Polymorphism : Method Overriding
@@ -68,7 +68,7 @@ s.buy()
 
 ###################Note: If child constructor is present then parent constructor WONT be called
 class Parent:
-    def __init__(self,num): #This wont be called therefor num variable is not created
+    def __init__(self,num): #This wont be called therefore num variable is not created
         self.__num=num
     
     def get_num(self):
@@ -161,7 +161,7 @@ class Product:
 class SmartPhone (Phone, Product): 
     """
     SmartPhone Dosent have Constructor so phone's constructor is called as its precedence is first while inheriting
-    and if phone also dosent have the constructor then products constructo is called
+    and if phone also dosent have the constructor then products constructor is called
     """
     pass
 

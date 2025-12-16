@@ -2,7 +2,12 @@
 Abstraction means hidden
 
 abstract method is a method in which we dont have any code
-
+"""
+"""
+| Concept           | Meaning                         |
+| ----------------- | ------------------------------- |
+| **Abstraction**   | *What* operations are available |
+| **Encapsulation** | *How* data is protected         |
 """
 
 #abstract base classes module

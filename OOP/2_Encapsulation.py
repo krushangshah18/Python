@@ -6,10 +6,9 @@ We restrict our variables to get accessed directly
 Why? : 
 so if the variables are being accessed directly then variables can be update directly from outside of the object 
 
-we make variables and methids private by prefixing the name by "__" eg : __IamPrivateVar OR __PrivateMethod()
+we make variables and methods private by prefixing the name by "__" eg : __IamPrivateVar OR __PrivateMethod()
 
-
-when we make variable private as __MyVar during interpretation its converted to _ClassName_MyVar
+when we make variable private as __MyVar during interpretation its converted to _ClassName__MyVar
 """
 #Nothing in python is truly private
 

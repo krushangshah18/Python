@@ -1,13 +1,41 @@
 """
 Python’s GIL (Global Interpreter Lock) allows only one thread to execute Python bytecode at a time.
+    Exists in CPython and Not in PyPy, Jython, IronPython
+    So threads cannot run CPU-bound code in parallel.
+Why Does Python Have the GIL : Uses reference counting for memory management Reference counting is not thread-safe
+GIL simplifies memory safety
 
-So threads cannot run CPU-bound code in parallel.
+What the GIL ACTUALLY Blocks :
+| Scenario             | GIL Impact      |
+| -------------------- | ----------------|
+| CPU-bound threading  | ❌ Blocked      |
+| I/O-bound threading  | ✅ Works        |
+| Multiprocessing      | ✅ No GIL issue |
+| NumPy / C extensions | ✅ GIL released |
+
 
 Multiprocessing overcomes the GIL by creating separate Python processes, each with its own interpreter + its own GIL.
+Multiprocessing runs multiple processes.
+    - Separate memory space
+    - Uses multiple CPU cores
+    - True parallelism
 
 its good when tasks are CPU bound and not I/O bound
 """
+"""
+Python Scope Rule
+Python follows LEGB:
 
+| Scope | Meaning                              |
+| ----- | ------------------------------------ |
+| **L** | Local (inside current function)      |
+| **E** | Enclosing (outer function, closures) |
+| **G** | Global (module-level)                |
+| **B** | Built-in                             |
+
+- global tells Python to use the module-level variable, not create a local one
+- nonlocal refers to the nearest enclosing function variable (NOT global). (Only works inside nested functions)
+"""
 
 from multiprocessing import Process
 import os
@@ -23,15 +51,13 @@ p.join()
 
 ############# Proper Example for multiprocessing
 
-from multiprocessing import process
-
 def compute():
     s=0
     print(f"Work getting executed by {os.getpid()}")
     for i in range(10_000_000):
         s+=i
 
-    print(f"Lop completed for {os.getpid()}")
+    print(f"Loop completed for {os.getpid()} s={s}")
         
 
 processes = []

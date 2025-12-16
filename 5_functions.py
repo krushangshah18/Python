@@ -32,7 +32,9 @@ print(multiply(3, 4))
 - Inside the function, args becomes a tuple.
 """
 def total(*args):
-    return sum(args)
+    print(args) 
+    print(type(args)) #tuple
+    return sum(args) #10
 
 print(total(1,2,3,4))
 
@@ -84,6 +86,8 @@ print(list(zipped))  # [(1, 'a'), (2, 'b'), (3, 'c')]
 fruits = ['apple', 'banana', 'cherry']
 for i,fruit in enumerate(fruits):
     print(i, fruit)
+for i,fruit in enumerate(fruits,start=5):
+    print(i, fruit)
 
 #sorted()
 nums = [5, 2, 9, 1]
@@ -115,3 +119,71 @@ def add(a, b):
     """This function adds two numbers."""
     return a + b
 print(add.__doc__)
+
+
+############## Nested Functions
+
+def outer():
+    def inner():
+        print("I am here")
+    inner()
+
+outer()
+
+#Returning the inner function
+def outer():
+    def inner():
+        print("I am here")
+    return inner
+
+f = outer()
+f()
+
+
+################# Closure
+"""
+A closure is a function that remembers variables from its enclosing scope, even after that scope has finished execution
+"""
+
+def outer():
+    x = 10
+
+    def inner():
+        print(f"Value of x = {x}") #Closure
+
+    return inner
+
+f = outer()
+f()
+
+#Modifying Enclosed Variables
+def outer():
+    x = 10
+    def inner():
+        nonlocal x # in using nonlocal : 
+        #UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
+        x += 1
+        print("Inner X : ",x)
+    
+    print("outer before calling inner X : ",x)
+    inner()
+    print("outer After calling inner X : ",x)
+
+outer()
+
+
+#########IMP : Closures capture variable, not value
+funcs = []
+for i in range(3):
+    def f():
+        print(i)
+    funcs.append(f)
+
+for f in funcs:
+    f()
+
+"""
+2
+2
+2
+"""

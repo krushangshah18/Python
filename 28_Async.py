@@ -17,7 +17,7 @@ print()
 print()
 """
 asyncio.run() : starts event loop and we need to pass a coroutine object to this
-the async function we are calling in its parameres return a coroutine object
+the async function we are calling in its parameters return a coroutine object
 
 this handles the awaiting of the coroutine object
 """
@@ -82,7 +82,7 @@ async def main():
     print(f"Received result: {result1}")
     result2 = await task2
     print(f"Received result: {result2}")
-    #Here wwe are not getting any performance benefit as both of them needs to be awaited 
+    #Here we are not getting any performance benefit as both of them needs to be awaited 
     #so for now the execution takes 4sec instead of 2 
     #thesefore we use tasks performed below
 
@@ -96,7 +96,7 @@ print()
 ######## Tasks 
 """
 way to run co-routine schedule ASAP 
-and allws us to run multiple cvoroutine simultaneously
+and allows us to run multiple coroutine simultaneously
 """
 
 async def fetch_data(id, sleep_time):

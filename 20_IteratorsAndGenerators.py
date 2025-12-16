@@ -1,3 +1,24 @@
+"""
+- Iteration: taking each item of something one after another
+
+- iterator: it helps you perform iteration (its an object that allows to traverse a sequence of data without having
+to store the entire data in memory)
+
+It dosent loads full data in memory loads only the required part which needs to be processed
+
+- iterable: its an object which one can iterate over, it generates iterator when passed to iter() method
+
+NOTE: Every iterator is iterable but not every iterable is iterator
+    EX: List can be iterate over but its not itorator as it need to be full stored in memory 
+    and iterators main feature is that not to store entire data in memory
+
+every iterable has __iter__ function in its dir(obj) if it has __iter__ then its iterable
+and for iterator __iter__ and __next__ needs to be present
+
+IMP: if we apply iter on a list or some other iterable we get iterator object and it has both __iter__ abd __next__
+so the iterator object also has __iter__ which is self and not any other iterator
+"""
+
 import sys
 
 L = [x for x in range(1,100000)] #Stores complete list in memory
@@ -17,7 +38,7 @@ print(next(iterOfL)) #3
 print(next(iterOfL)) #4
 # print(next(iterOfL)) #StopIteration Error
 
-#Creatin our ouwn for loop using iterators
+#Creating our own for loop using iterators
 def my_for_loop(iterable):
     iterator = iter(iterable)
     while True:
@@ -80,7 +101,7 @@ def genDemo():
     yield 3
     print("StopIteration ERROR Will be raised now if called using next incase using loop it will handle it automatically")
 
-g = genDemo() #Creating generator object here we next is not called yet
+g = genDemo() #Creating generator object here next is not called yet
 
 # print(next(g)) #Start 1
 # print(next(g)) #Middle 2
@@ -117,13 +138,14 @@ maintaining state between calls
 
 when its paused at yield, all local variables and the execution state are saved, allowing it to resume later
 """
-
+#What Makes a Function a Generator? 👉 Presence of yield
+#Generators Are ONE-TIME USE as they remembers state Once exhausted → gone
 #Generator function 
 def squares(n):
     for i in range(n):
         yield i*i
 
-gen = squares(10)
+gen = squares(10) #This function does NOT run immediately It returns a generator object
 print(next(gen))
 print(next(gen))
 print(next(gen))
@@ -165,7 +187,7 @@ def batch_loader(data, batch_size):
     for item in data:
         batch.append(item)
         if len(batch) == batch_size:
-            yield batch
+            yield batch #Function pauses at yield Resumes from the same spot next time
             batch = []
     if batch:
         yield batch

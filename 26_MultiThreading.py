@@ -1,7 +1,17 @@
+"""  
+Concurrency
+Multiple tasks in progress at the same time (Not necessarily running simultaneously)
+
+Parallelism
+Multiple tasks executing at the same time (Requires multiple CPU cores)
+"""
+
 """
 Threading = running multiple tasks concurrently within the same process
 
-
+- Shared memory
+- Lightweight
+- Fast context switching
 """
 
 import threading,time
