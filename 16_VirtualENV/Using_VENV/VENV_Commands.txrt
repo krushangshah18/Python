@@ -18,7 +18,7 @@ after activating the environment these are some of the commands used :
     python --version
     pip install pymongo
     pip list 
-    pip list > requirements.txt // i creates list of all the packages used so that incase needed we can use this requirements file and install it all
+    uv pip list > requirements.txt // i creates list of all the packages used so that incase needed we can use this requirements file and install it all
 
 
 Then whenever you want to install the packages from requirements.txt in an active environment use this command :
