@@ -148,3 +148,46 @@ a = A()
 b = A()
 a.other = b
 b.other = a
+
+"""
+If class A did NOT define __del__:
+
+    class A:
+        pass
+
+Then:
+
+    - GC detects the cycle
+    - It sees objects are unreachable
+    - It breaks the cycle
+    - Memory is freed ✅
+
+This is safe because:
+
+    - GC can delete objects in any order
+    - No custom cleanup logic exists
+
+
+What changes when __del__ exists?
+
+Now your class defines:
+
+    def __del__(self):
+        print("deleted")
+
+This introduces a finalizer.
+
+Problem:
+
+    - GC does not know:
+
+        - Which object’s __del__ should run first
+        - Whether a.__del__() needs b
+        - Whether b.__del__() needs a
+
+    - Deleting one first may cause:
+
+        - Access to a half-destroyed object
+        - Crashes or undefined behavior
+So Python refuses to collect them
+"""

@@ -45,7 +45,7 @@ print(a - b)
 print(a.difference(b))     # {1, 2}
 
 print(a ^ b)
-print(a.symmetric_difference(b))  # {1, 2, 5, 6
+print(a.symmetric_difference(b))  # {1, 2, 5, 6}
 
 """Set Membership"""
 print(2 in a)     # True

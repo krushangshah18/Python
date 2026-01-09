@@ -79,6 +79,8 @@ for x in range(3):
 #Using else with loops
 for q in range(3):
     print(q)
+    # if q ==2: 
+    #     break #if break is executed then else part wont be executed
 else:
     print("Loop completed")
 

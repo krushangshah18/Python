@@ -123,6 +123,27 @@ def square(x):
     return x*x
 
 with Pool(processes=4) as pool:
-    results = pool.map(square,range(10))
+    results = pool.map(square,range(10)) #pool.map(function, iterable)
+    """
+    - Apply function to each element of iterable
+    - Distribute work across the process pool
+    - Collect results in input order
+    """
 
 print(results)
+
+"""
+Worker 1 → square(0)
+Worker 2 → square(1)
+Worker 3 → square(2)
+Worker 4 → square(3)
+
+Worker 1 → square(4)
+Worker 2 → square(5)
+Worker 3 → square(6)
+Worker 4 → square(7)
+
+Worker 1 → square(8)
+Worker 2 → square(9)
+
+"""

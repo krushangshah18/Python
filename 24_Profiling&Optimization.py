@@ -12,7 +12,6 @@ Python gives two types of profiling:
 | ------------ | ----------------------------------------------- |
 | **cProfile** | Entire scripts, functions, bottleneck discovery |
 | **timeit**   | Micro-benchmarks (tiny pieces of code)          |
-
 """
 
 #####################cProfile

@@ -36,7 +36,7 @@ await can be used only inside an async function
 
 # Define a coroutine that simulates a time-consuming task
 async def fetch_data(delay):
-    print("Fetching data... ") 
+    print("Fetching data....") 
     await asyncio.sleep(delay)
     # Simulate an I/O operation with a sleep
     print("Data fetched")
@@ -130,7 +130,7 @@ of our program we move on and start executing another task
 
 NOTE : we are not using multiple CPU Cores
 
-Goal : is to optimizre our efficiency
+Goal : is to optimize our efficiency
 """
 
 
